@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root{
+    --primary-text-blue:         hsl(238, 29%, 16%);
+    --primary-text-red:          hsl(14, 88%, 65%);
+    --neutral-text-verydarkblue: hsl(237, 12%, 33%);
+    --neutral-text-darkblue:     hsl(240, 6%, 50%);
+    --gradient-violet:           hsl(273, 75%, 66%);
+    --gradient-blue:             hsl(240, 73%, 65%);
+    --dividers:                  hsl(240, 5%, 91%);
+}
+
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+body{
+    background:linear-gradient(
+      0deg, 
+      var(--gradient-blue)0%,
+      var(--gradient-violet)100%) 
+    no-repeat center center fixed;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.page-wrapper{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+    overflow: hidden;
+    padding:1rem;
+}
+
+.accordion-card{
+    background:url(images/bg-pattern-desktop.svg),white;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: -33.615rem -17rem;
+
+    max-width:57.625rem;
+    height:31.875rem;
+    margin:7rem auto;
+
+    border-radius: 1.25rem;
+
+    -webkit-box-shadow: 0px 32px 27px -8px rgba(59,59,135,0.81); 
+    box-shadow: 0px 32px 27px -8px rgba(59,59,135,0.81);
+
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+
+    font-size: .75rem;
+    
+}
+
+.img-mobile{
+    display: none;
+}
+
+.img-center{
+    overflow: hidden;
+    height:100%;
+}
+
+.container-img1{
+    display: block;
+    margin-inline: auto;
+    width: 100%;
+    position: relative;
+    top: 4rem;
+    right: 4.875rem;
+}
+
+.container-img2{
+    display: block;
+    position: relative;
+    z-index: 2;
+    bottom: 21rem;
+    right: 6rem;
+}
+
+.accordion-text{
+  margin-right: 5rem;
+  margin-top: 5rem;
+}
+
+h1.accordion-title {
+  font-size: 3em;
+  padding-bottom: 1rem;
+  font-weight: 700;
+  color: var(--primary-text-blue);
+}
+
+.accordion-item {
+  border-bottom: solid 1pt var(--dividers);
+}
+
+.accordion-btn{
+    background:white;
+    border:none;
+    padding:1rem 0;
+    
+    cursor:pointer;
+
+    display:flex;
+    justify-content: space-between;
+
+    width:100%;
+
+    font-size: 1rem;
+    color: var(--neutral-text-verydarkblue);
+}
+
+.accordion-btn:not(.collapsed)::after{
+  transform: rotate(-180deg);
+}
+
+.accordion-btn:not(.collapsed){
+  font-weight:700;
+  color: var(--primary-text-blue);
+}
+
+.accordion-btn:hover{
+  color:var(--primary-text-red);
+}
+
+.accordion-btn::after{
+    content:'';
+    display:block;
+    width:.75rem;
+    height:.75rem;
+    background-image:url(images/icon-arrow-down.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: transform .2s ease;
+}
+
+.accordion-body {
+  line-height: 1.2rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease;
+}
+
+.accordion-content{  
+  padding-bottom: 1rem;
+}
+
+/*.collapse:not(.open){
+    display:none;
+}*/
+
+.collapsing {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease-out;
+}
+
+.accordion-body.open{
+  display: block;
+}
+
+@media screen and (max-width:1008px){
+
+    .accordion-card{
+        background:url(images/bg-pattern-mobile.svg),white;
+        background-repeat: no-repeat;
+        background-size: 75%;
+        background-position: top;
+        width:20.5625rem;
+        height:33.5625rem;
+
+        position: absolute;
+        top:2rem;
+
+        display:flex;
+        flex-direction: column;
+    }
+
+    .accordion-img{
+        display:none;
+    }
+
+    .img-mobile{
+        display:block;
+        position: relative;
+        max-width: 237px;
+        margin-top: -6.75rem;
+        margin-left: 2.8rem;        
+    }
+
+    .accordion-text{
+      margin-top:3rem;
+      margin-inline:2rem;
+    }
+
+    .accordion-title{
+      text-align:center;
+    }
+
+    .accordion-btn{
+      font-size:.8rem;
+    }
+}
